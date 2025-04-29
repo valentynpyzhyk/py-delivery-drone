@@ -4,9 +4,9 @@ from typing import List, Optional
 class BaseRobot:
     def __init__(self, name: str, weight: int,
                  coords: Optional[List[int]] = None) -> None:
-        self.name: str = name
-        self.weight: int = weight
-        self.coords: List[int] = coords if coords is not None else [0, 0]
+        self.name = name
+        self.weight = weight
+        self.coords = coords if coords is not None else [0, 0]
 
     def go_forward(self, step: int = 1) -> None:
         self.coords[1] += step
@@ -42,7 +42,7 @@ class FlyingRobot(BaseRobot):
 
 class Cargo:
     def __init__(self, weight: int) -> None:
-        self.weight: int = weight
+        self.weight = weight
 
 
 class DeliveryDrone(FlyingRobot):
@@ -51,8 +51,8 @@ class DeliveryDrone(FlyingRobot):
                  max_load_weight: int = 0,
                  current_load: Optional[Cargo] = None) -> None:
         super().__init__(name, weight, coords)
-        self.max_load_weight: int = max_load_weight
-        self.current_load: Optional[Cargo] = None
+        self.max_load_weight = max_load_weight
+        self.current_load = None
         if isinstance(current_load, Cargo):
             self.hook_load(current_load)
 
